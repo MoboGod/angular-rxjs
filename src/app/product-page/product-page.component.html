@@ -1,0 +1,9 @@
+<div *ngFor="let product of productData">
+  <div class="flex flex-col mb-2">
+    <h1>{{ product.title }}</h1>
+    <h2>{{ product.price | currency }}</h2>
+    <p>{{ product.description }}</p>
+    <p>{{ product.category }}</p>
+  </div>
+  <button class="bg-emerald-400 rounded border p-2" (click)="onEditProduct()">Update Info</button>
+</div>

@@ -1,0 +1,21 @@
+<div *ngFor="let product of products">
+  <div class="flex items-center flex-col border rounded py-4 mx-64 mb-2 w-50">
+    <div class="mb-5">
+      <img class="w-[200px]" [src]="product.image" alt="" />
+    </div>
+    <label class="font-bold mb-2">
+      {{ product.title }}
+    </label>
+    <div class="">
+      <button
+        [ngClass]="showProductDescription ? 'p-2 bg-sky-400' : 'p-2 bg-yellow-400'"
+        (click)="navigateToProductPage(product.id)"
+      >
+        More details
+      </button>
+    </div>
+    <div *ngIf="showProductDescription">
+      <p class="p-5">{{ product.description }}</p>
+    </div>
+  </div>
+</div>
