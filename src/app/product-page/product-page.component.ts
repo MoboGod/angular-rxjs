@@ -26,9 +26,24 @@ export class ProductPageComponent implements OnInit {
     })
   }
 
-  onEditProduct() {
-    this.productsService.updateProduct(this.productData[0]).subscribe((data) => {
-      console.log(data)
+  onEditProductInfo(description: string): void {
+    const currentProduct: Product = this.productData[0]
+    // productToEdit.price = price
+    const productToEdit: Product = {
+      id: currentProduct.id,
+      title: currentProduct.title,
+      price: currentProduct.price,
+      description: description,
+      category: currentProduct.category,
+      image: currentProduct.image,
+      rating: {
+        rate: currentProduct.rating.rate,
+        count: currentProduct.rating.count
+      }
+    }
+
+    this.productsService.updateProduct(productToEdit).subscribe((data: Product) => {
+      this.productData = [data]
     })
   }
 }

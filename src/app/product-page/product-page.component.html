@@ -5,5 +5,11 @@
     <p>{{ product.description }}</p>
     <p>{{ product.category }}</p>
   </div>
-  <button class="bg-emerald-400 rounded border p-2" (click)="onEditProduct()">Update Info</button>
+
+  <div class="mt-10">
+    <input type="text" [value]="product.description" #description /> <br />
+    <button class="bg-emerald-400 rounded border p-2" (click)="onEditProductInfo(description.value)">
+      Update Info
+    </button>
+  </div>
 </div>
